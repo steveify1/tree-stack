@@ -1,0 +1,27 @@
+.user {
+  .user__image {
+    height: 90px;
+    width: 90px;
+  }
+
+  .user__image--sm {
+    height: 25px;
+    width: 25px;
+  }
+
+  // .user__name {
+  //   @extend .milli;
+  // }
+  .user__name--md {
+    @extend .milli;
+  }
+
+  .user__name--sm {
+    @extend .mini;
+  }
+
+  &__description {
+    opacity: 0.8;
+    margin: 1em 0;
+  }
+}

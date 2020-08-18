@@ -1,0 +1,44 @@
+$primaryGradient: var(--primaryGradient);
+
+.contact {
+  margin-bottom: 6em;
+  &__container {
+    background-color: var(--white);
+    @include BoxShadow(0, 7px, 8px, rgba(0, 0, 0, 0.1));
+    @include BorderRadius(7px);
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: 1.7fr 1.3fr;
+    }
+  }
+
+  &__socials {
+    background: $primaryGradient;
+    height: 100%;
+    padding: 3em;
+
+    &__wrapper {
+      padding: 1em;
+      @include BoxShadow(0, 7px, 10px, rgba(0, 0, 0, 0.2));
+      @include BorderRadius(7px);
+      height: 100%;
+      width: 100%;
+      background-color: var(--white);
+
+      .headline {
+        color: var(--primaryColor);
+      }
+    }
+
+    .social {
+      margin-bottom: 1em;
+      .icon {
+      }
+      p,
+      a {
+        margin-left: 0.5em;
+      }
+    }
+  }
+}

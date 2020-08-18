@@ -1,0 +1,60 @@
+.nav__icons {
+  flex-grow: 1;
+
+  .icon {
+    font-size: 1.4rem;
+
+    &:hover {
+      color: var(--primaryColor);
+    }
+  }
+}
+
+.main-menu {
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-height: 400px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    flex-direction: column;
+    -ms-flex-direction: column;
+    padding: 12em 0 0;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: 0.2s ease;
+    transform-origin: 0 0;
+
+    &__close-icon {
+      position: absolute;
+      top: 3.5%;
+      right: 2%;
+      font-size: 2rem !important;
+
+      &:hover {
+        color: var(--primaryColor);
+      }
+    }
+
+    li {
+      width: fit-content;
+      margin: 0 auto;
+
+      a {
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 2em;
+      }
+    }
+
+    &.show-menu {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+}

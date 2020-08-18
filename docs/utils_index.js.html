@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { shallow } from 'enzyme';
+import checkPropTypes from 'check-prop-types';
+
+/**
+ * Utilities module
+ * @module utils
+ */
+
+/**
+ * Set up component - for writing tests
+ * @param component
+ * @returns component - a "ShallowWrapper" usually called "wrapper" from "Enzyme.shallow(&lt;component>)"
+ *
+ * @example
+ * const wrapper = setUpComponent(&lt;MyComponent />);
+ * ...//
+ * @example
+ * let wrapper;
+ * beforeEach(() => {
+ *  wrapper = setUpComponent(&lt;MyComponent />);
+ * })
+ * ...
+ */
+export const setUpComponent = (component) => shallow(component);
+
+/**
+ * Find an Element/s or Component/s by "data-test" attr - for writing tests
+ * @param wrapper - from "Enzyme.shallow() | Enzyme.mount()"
+ * @param {string} attr - the attribute
+ * @returns the matched Element/s or Component/s as a "ShallowWrapper"
+ *
+ * @example
+ * const wrapper = setUpComponent(&lt;MyComponent />);
+ * ...//
+ * findByTestAttr(wrapper, 'cta-link');
+ * @example
+ * ...
+ * const link = findByTestAttr(wrapper, 'cta-link');
+ * expect(link.length).toBe(1);
+ * ...//
+ * @example
+ * ...
+ * const button = findByTestAttr(wrapper, 'my-btn');
+ * expect(button.text()).toBe('please click me!');
+ */
+export const findByTestAttr = (wrapper, attr) =>
+   wrapper.find(`[data-test='${attr}']`);
+
+/**
+ * Find an Element/s or Component/s by its name selector - for writing tests
+ * @param wrapper - from "Enzyme.shallow() | Enzyme.mount()"
+ * @param {string} name - the selector eg: ("header" | "MyHeaderComponent") etc...
+ * @returns the matched Element/s or Component/s as a "ShallowWrapper"
+ *
+ * @example
+ * * const wrapper = setUpComponent(&lt;MyComponent />);
+ * ...
+ * findByElemName(wrapper, 'cta-link');
+ * ...//
+ * @example
+ * ...
+ * const MyHeaderComponent = findByElemName(wrapper, 'MyHeaderComponent');
+ * expect(MyHeaderComponent.length).toBe(2);
+ * ...//
+ * @example
+ * ...
+ * const header = findByElemName(wrapper, 'header');
+ * expect(header.text()).toBe('the is the header element');
+ */
+export const findByElemName = (wrapper, name) => wrapper.find(name);
+
+/**
+ * Check propTypes of a component - for writing tests
+ * @param {*} component - from "Enzyme.shallow().find() | Enzyme.mount().find()"
+ * @param {object} props - the expected props for the component;
+ * @returns "undefined" when the propTypes of the component doesn't throw a warning msg else "warning-msg&lt;string>"
+ *
+ * @example
+ *  import Modal from "./"
+ *  ...
+ *  const props = { isOpen: false, ...};
+ *  checkProps(Modal, props);
+ * ...//
+ * @example
+ * desc('--> checking props', () => {
+ *  const props = { isOpen: false, ...};
+ *  const propsErr = checkProps(Modal, props);
+ *
+ *  expect(propsErr).toBeUndefined();
+ * })
+ */
+export const checkProps = (component, props) => {
+   // eslint-disable-next-line react/forbid-foreign-prop-types
+   const { propTypes: typeSpecs, name: componentName } = component,
+      values = props,
+      location = 'props';
+
+   return checkPropTypes(typeSpecs, values, location, componentName);
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Articulation</a></h2><h3>Modules</h3><ul><li><a href="module-utils.html">utils</a></li></ul><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="Articles.html">Articles</a></li><li><a href="Aside.html">Aside</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Button.html">Button</a></li><li><a href="Card.html">Card</a></li><li><a href="Cards.html">Cards</a></li><li><a href="Collections.html">Collections</a></li><li><a href="Container.html">Container</a></li><li><a href="Dashboard.html">Dashboard</a></li><li><a href="Header.html">Header</a></li><li><a href="Main.html">Main</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Projects.html">Projects</a></li><li><a href="ResourcePreview.html">ResourcePreview</a></li><li><a href="Reviews.html">Reviews</a></li><li><a href="Schedules.html">Schedules</a></li><li><a href="Section.html">Section</a></li><li><a href="Sequels.html">Sequels</a></li><li><a href="Support.html">Support</a></li><li><a href="Tutorials.html">Tutorials</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sat Aug 01 2020 22:03:21 GMT+0100 (West Africa Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

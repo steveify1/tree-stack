@@ -1,0 +1,66 @@
+.Button {
+	margin: 0.1875rem 0;
+	padding: 0.1875rem 0.9375rem;
+	border-radius: 0.375rem;
+	border: 1px solid;
+	opacity: 1;
+	transition: var(--fast-transition);
+	color: var(--background-color);
+	background: none;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+
+	&--primary {
+		background-color: var(--background-color);
+		color: var(--primary-color);
+		border: none;
+		font-weight: 500;
+	}
+
+	&--secondary {
+		background-color: var(--assent-color);
+		border: none;
+		font-weight: 500;
+	}
+
+	&--icon {
+		padding: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 33px;
+		height: 32px;
+		border-radius: 50%;
+	}
+
+	&:disabled {
+		opacity: 0.3;
+		cursor: default;
+
+		&:hover,
+		&:active,
+		&:focus {
+			transform: translateY(0%);
+			opacity: 0.3;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		opacity: 0.95;
+		transform: translateY(-2%);
+		box-shadow: var(--shadow);
+		outline: none;
+	}
+
+	&:focus {
+		opacity: 0.85;
+	}
+
+	&:active {
+		transform: translateY(0%);
+		box-shadow: none;
+	}
+}

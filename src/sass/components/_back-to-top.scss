@@ -1,0 +1,50 @@
+.back-to-top {
+  position: fixed;
+  right: 2%;
+  bottom: 8%;
+  background-color: var(--white);
+  background-color: var(--secondary-color);
+  padding: 0.5em;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  color: var(--gray);
+  overflow: hidden;
+  // color: var(--secondary-color);
+
+  &,
+  &::after {
+    @include BorderRadius(50%);
+  }
+  &::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    transform: scale(0);
+  }
+
+  &:hover {
+    @include BoxShadow(0px, 3px, 10px, rgba(0, 0, 0, 0.1));
+    &::after {
+      transform: scale(0.8);
+      @include BoxShadow(0px, 2px, 10px, rgba(0, 0, 0, 0.1));
+    }
+
+    .icon {
+      color: var(--secondary-color);
+    }
+  }
+
+  &,
+  &::after,
+  .icon {
+    transition: all 0.1s ease;
+  }
+  .icon {
+    font-size: 1.5rem;
+  }
+}

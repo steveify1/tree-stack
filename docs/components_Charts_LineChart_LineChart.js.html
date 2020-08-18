@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Charts/LineChart/LineChart.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Charts/LineChart/LineChart.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import { Line } from 'react-chartjs-2';
+import { string, number, shape as ObjectShape, arrayOf } from 'prop-types';
+
+/**
+ * Dataset - this specifies the `data` representation itself for the `LineChart` component
+ * @see &lt;a href="/docs/LineChart.html">LineChart parent component&lt;/a>
+ *
+ * @typedef {object} Dataset
+ * @property {string} label - this is for the title of the the data to be represented
+ * @property {Array&lt;number>} data - each item in this `Array` is a `data` representation for each item in the `labels` array in the `LineChartData typedef`
+ * @see &lt;a href="/docs/LineChart.html">LineChart typedef&lt;/a>
+ *
+ * @property {string} [borderWidth] - (`optional`) for the width of the `line-path` in the chart. eg: "1.5"... (note: don't provide with "px". eg: "1.5px"!!!);
+ * @property {Array&lt;string>} [borderColor] - (`optional`) an `Array` for the border-color of the `line-path` in the chart. eg: ['red']...
+ * @property {Array&lt;string>} [backgroundColor] - (`optional`) an `Array` for the background-color of the `fill` in the chart. eg: ['orange']...
+ * @property {string} [pointBorderColor] - (`optional`) for the border-color of the `point` in the chart. eg: 'blue'...
+ * @property {string} [pointBackgroundColor] - (`optional`) for the background-color of the `point` in the chart. eg: 'cyan'...
+ */
+
+/**
+ * LineChartData - this is to be passed as props to the LineChart component
+ * @see &lt;a href="/docs/LineChart.html">LineChart component&lt;/a>
+ *
+ * @typedef {object} LineChartData
+ * @property {Array&lt;string>} labels - (`required`) for the `labels` of the `xAxes` in the `LineChart`
+ * @property {Array&lt;Dataset>} datasets - each object correspond to 1 `line-path` and `fill` in the chart
+ *
+ */
+
+/**
+ * LineChart component - for visualizing data in a Line-chart format: (charts Component)
+ *
+ * @component
+ * @param props
+ * @param {LineChartData} props.data
+ * @param {number} props.width - for customizing the `width` of the `chart`. `note` the `higher` the `number` passed the `smaller` the `height` will be.
+ * @param {number} props.height - for customizing the `height` of the `chart`.
+ *
+ * @example
+ * USAGE
+ *
+ * const lineChartProps = {
+ * 	width: 100,
+ * 	height: 50,
+ *
+ * 	data: {
+ * 		labels: ['jan', 'feb', 'mar'],
+ *
+ * 		datasets: [
+ * 			{
+ * 				label: 'sales for 2020 (in millions)',
+ * 				data: [3, 2, 2],
+ *					borderColor: ['rgb(57, 21, 154)'],
+ * 				backgroundColor: ['rgba(57, 21, 154, .1)'],
+ * 				pointBorderColor: 'rgb(225, 225, 225)',
+ * 				pointBackgroundColor: 'rgb(57, 21, 154)',
+ * 				borderWidth: '1.5',
+ * 			}
+ * 		],
+ * 	},
+ * }
+ *
+ * return (
+ * 	&lt;LineChart {...lineChartProps} />
+ * )
+ */
+function LineChart(props) {
+	const { data, width, height, ...rest } = props;
+
+	const lineProps = {
+		data,
+
+		options: {
+			// 	title: {
+			// 		text: 'line chart',
+			// 		display: true,
+			// 	},
+			scales: {
+				yAxes: [
+					{
+						ticks: {
+							min: 0,
+							max: 6,
+							stepSize: 1,
+						},
+					},
+				],
+			},
+		},
+	};
+
+	// small boxes
+	// return &lt;Line width={500} height={500} {...lineProps} />;
+	return &lt;Line width={width} height={height} {...lineProps} {...rest} />;
+}
+
+LineChart.propTypes = {
+	data: ObjectShape({
+		labels: arrayOf(string).isRequired,
+		datasets: arrayOf(
+			ObjectShape({
+				label: string.isRequired,
+				data: arrayOf(number).isRequired,
+				borderColor: arrayOf(string),
+				backgroundColor: arrayOf(string),
+				pointBorderColor: string,
+				pointBackgroundColor: string,
+				borderWidth: string,
+			})
+		).isRequired,
+	}).isRequired,
+
+	/**
+	 * for customizing the `width` of the `chart`. `note` the `higher` the `number` passed the `smaller` the `height` will be.
+	 */
+	width: number,
+	/**
+	 * for customizing the `height` of the `chart`.
+	 */
+	height: number,
+};
+
+export default LineChart;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Articulation</a></h2><h3>Modules</h3><ul><li><a href="module-utils.html">utils</a></li></ul><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="Articles.html">Articles</a></li><li><a href="Aside.html">Aside</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Button.html">Button</a></li><li><a href="Card.html">Card</a></li><li><a href="Cards.html">Cards</a></li><li><a href="Collections.html">Collections</a></li><li><a href="Container.html">Container</a></li><li><a href="Dashboard.html">Dashboard</a></li><li><a href="Header.html">Header</a></li><li><a href="LineChart.html">LineChart</a></li><li><a href="Main.html">Main</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Projects.html">Projects</a></li><li><a href="Reviews.html">Reviews</a></li><li><a href="Schedules.html">Schedules</a></li><li><a href="Section.html">Section</a></li><li><a href="Sequels.html">Sequels</a></li><li><a href="Support.html">Support</a></li><li><a href="Tutorials.html">Tutorials</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Thu Jul 30 2020 18:29:03 GMT+0100 (West Africa Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

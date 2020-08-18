@@ -1,0 +1,43 @@
+:root {
+  --primary-color: rgb(57, 21, 154);
+  --primaryColor: var(--primary-color);
+  --primary-dark-color: rgb(57, 34, 98);
+  --primary-trans-color: rgba(255, 255, 255, 0.3);
+  --primary-trans-2-color: rgba(255, 255, 255, 0.5);
+
+  --assent-color: rgb(51, 204, 153);
+  --secondary-color: rgb(51, 204, 153);
+
+  --primary-gradient: linear-gradient(
+    -30deg,
+    var(--primary-dark-color),
+    var(--primary-color) 60%
+  );
+  --primaryGradient: var(--primary-gradient);
+
+  --secondaryColor: rgb(51, 204, 153);
+  --white: #fff;
+  --pink: rgb(235, 15, 63);
+  --textColor: #222;
+  --gray: rgb(53, 53, 53);
+  --inverseTextColor: #fff;
+}
+
+// Class Definitions
+.color--primary {
+  color: var(--primary-color);
+}
+.color--secondary {
+  color: var(--assent-color);
+}
+
+.bg--primary {
+  background-color: var(--primary-color);
+}
+.bg--secondary {
+  background-color: var(--assent-color);
+}
+
+.bg--gradient {
+  background: var(--primaryGradient);
+}

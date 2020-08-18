@@ -1,0 +1,11 @@
+$globalMaxWidth: 1200px;
+
+$globalHSpace: 3em;
+
+:root {
+  --global-h-space: 1em;
+
+  @media screen and (min-width: 768px) {
+    --global-h-space: 4em;
+  }
+}

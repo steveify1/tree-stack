@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/pages/Dashboard/Dashboard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/pages/Dashboard/Dashboard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import { FaChevronRight, FaBookOpen, FaList, FaPen } from 'react-icons/fa';
+import { Line as LineChart, Doughnut as DoughnutChart } from 'react-chartjs-2';
+import './Dashboard.scss';
+import ResourcePreview from '../../ResourcePreview/ResourcePreview';
+import Section from '../../layouts/Section/Section';
+import Cards from '../../Cards/Cards';
+import Button from '../../Button/Button';
+
+/**
+ * Dashboard Component - a direct child of "MainContent" component: (page Component)
+ * @see &lt;a href="/docs/MainContent.html">MainContent (parent component)&lt;/a>
+ *
+ * @component
+ * @example
+ * return (
+ *  &lt;Dashboard />
+ * )
+ */
+
+function Dashboard() {
+	const cardsProps = {
+		cardList: [
+			{ title: 'total articles', quantity: '15' },
+			{ title: 'total collections', quantity: '5' },
+			{ title: 'total collections', quantity: '5' },
+			{ title: 'total collections', quantity: '5' },
+			{ title: 'total collections', quantity: '5' },
+			{ title: 'total collections', quantity: '5' },
+			{ title: 'total collections', quantity: '5' },
+			{ title: 'total collections', quantity: '5' },
+			{ title: 'total collections', quantity: '5' },
+		],
+	};
+
+	const lineChartProps = {
+		data: {
+			labels: ['jan', 'feb', 'mar', 'apr', 'may'],
+			datasets: [
+				{
+					label: 'sales for 2020 (in millions)',
+					data: [3, 2, 2, 1, 5],
+					borderWidth: '1.5',
+					borderColor: ['rgb(57, 21, 154)'],
+					backgroundColor: ['rgba(57, 21, 154, .1)'],
+					pointBackgroundColor: 'rgb(57, 21, 154)',
+				},
+				{
+					label: 'sales for 2019 (in millions)',
+					data: [1, 2, 5, 2, 3],
+					borderWidth: '1.5',
+					borderColor: ['rgb(51, 204, 153)'],
+					backgroundColor: ['rgba(51, 204, 153, .1)'],
+					pointBackgroundColor: 'rgb(51, 204, 153)',
+				},
+			],
+		},
+
+		options: {
+			legend: {
+				position: 'bottom',
+			},
+			scales: {
+				yAxes: [
+					{
+						ticks: {
+							min: 0,
+							max: 6,
+							stepSize: 1,
+						},
+					},
+				],
+			},
+		},
+	};
+
+	const doughnutChartProps = {
+		data: {
+			labels: ['Active', ' Completed'],
+			datasets: [
+				{
+					label: 'sales for 2019 (in millions)',
+					data: [10, 3],
+					borderWidth: '1.5',
+					backgroundColor: ['rgb(51, 204, 153)', 'rgb(240, 240, 240)'],
+				},
+			],
+		},
+
+		options: {
+			legend: {
+				reverse: true,
+				position: 'bottom',
+				labels: {
+					// fontColor: 'red',
+				},
+			},
+		},
+	};
+
+	const resourcePreviews = [
+		{
+			resource: 'articles',
+			description: 'publish your first article.',
+			icon: (className) => &lt;FaPen className={className} />,
+		},
+		{
+			resource: 'collections',
+			description: 'organize your content into a collection.',
+			icon: (className) => &lt;FaList className={className} />,
+		},
+		{
+			resource: 'sequels',
+			description: 'write series for readers to follow.',
+			icon: (className) => &lt;FaBookOpen className={className} />,
+		},
+	];
+
+	return (
+		&lt;div className='Dashboard'>
+			&lt;Section className='Dashboard__section Dashboard__section-1'>
+				&lt;Cards {...cardsProps} />
+			&lt;/Section>
+
+			&lt;Section className='Dashboard__section Dashboard__section-2' noBg>
+				&lt;section className='mini-section Dashboard__mini-section'>
+					&lt;LineChart width={100} height={35} {...lineChartProps} />
+				&lt;/section>
+
+				&lt;section className='mini-section Dashboard__mini-section'>
+					&lt;DoughnutChart width={150} {...doughnutChartProps} />
+					&lt;Button variant='secondary'>view schedules&lt;/Button>
+				&lt;/section>
+
+				{resourcePreviews.map((preview) => (
+					&lt;ResourcePreview
+						key={preview.resource}
+						className='Dashboard__mini-section'
+						resource={preview.resource}
+						description={preview.description}
+						icon={preview.icon}
+					/>
+				))}
+
+				&lt;section className='mini-section Dashboard__mini-section products-ad'>
+					&lt;h6 className='products-ad__heading'>product ad&lt;/h6>
+					&lt;p className='products-ad__text'>
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						Eveniet, suscipit!
+					&lt;/p>
+					&lt;Button variant='secondary'>
+						&lt;span>explore&lt;/span> &lt;FaChevronRight />
+					&lt;/Button>
+				&lt;/section>
+			&lt;/Section>
+
+			&lt;Section className='Dashboard__section Dashboard__section-3'>
+				&lt;h5>plugins&lt;/h5>
+			&lt;/Section>
+		&lt;/div>
+	);
+}
+
+export default Dashboard;
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Articulation</a></h2><h3>Modules</h3><ul><li><a href="module-utils.html">utils</a></li></ul><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="Articles.html">Articles</a></li><li><a href="Aside.html">Aside</a></li><li><a href="Brand.html">Brand</a></li><li><a href="Button.html">Button</a></li><li><a href="Card.html">Card</a></li><li><a href="Cards.html">Cards</a></li><li><a href="Collections.html">Collections</a></li><li><a href="Container.html">Container</a></li><li><a href="Dashboard.html">Dashboard</a></li><li><a href="Header.html">Header</a></li><li><a href="Main.html">Main</a></li><li><a href="MainContent.html">MainContent</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Projects.html">Projects</a></li><li><a href="ResourcePreview.html">ResourcePreview</a></li><li><a href="Reviews.html">Reviews</a></li><li><a href="Schedules.html">Schedules</a></li><li><a href="Section.html">Section</a></li><li><a href="Sequels.html">Sequels</a></li><li><a href="Support.html">Support</a></li><li><a href="Tutorials.html">Tutorials</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sat Aug 01 2020 22:03:21 GMT+0100 (West Africa Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

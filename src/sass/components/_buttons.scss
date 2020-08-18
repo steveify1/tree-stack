@@ -1,0 +1,153 @@
+// ******* BUTTONS *********
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn--group {
+  a.btn,
+  .btn {
+    display: inline;
+  }
+
+  .btn:not(:first-child) {
+    margin-left: 0.3em !important;
+  }
+}
+
+.btn {
+  text-transform: capitalize;
+  cursor: pointer;
+  font-family: inherit;
+  margin: 0 !important;
+  outline: none;
+  border: none;
+  @include BorderRadius(5px);
+  // @include transition(all 0.3s);
+
+  &:hover {
+    opacity: 0.9;
+    color: var(--white) !important;
+  }
+
+  &:focus,
+  &:active {
+    outline: none !important;
+  }
+
+  @media screen and (min-width: 576px) {
+    font-size: 0.9rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    font-size: 1.1em;
+  }
+}
+
+.btn:first-child {
+  margin-right: 1em !important;
+}
+
+.btn--rounded {
+  @include BorderRadius(5px);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--gray);
+  }
+}
+
+.btn--primary {
+  background-color: var(--primaryColor);
+  &.btn--outline {
+    background-color: transparent;
+    color: var(--primaryColor);
+    border-color: var(--primaryColor);
+
+    &:hover {
+      background-color: var(--primaryColor);
+      color: var(--white);
+    }
+  }
+}
+
+.btn--gradient {
+  background: var(--primaryGradient);
+}
+
+.btn--secondary {
+  background-color: var(--secondaryColor);
+  &.btn--outline {
+    background-color: transparent;
+    color: var(--secondaryColor);
+    border-color: var(--secondaryColor);
+
+    &:hover {
+      background-color: var(--secondaryColor);
+      color: var(--white);
+    }
+  }
+}
+
+.btn--primary,
+.btn--gradient,
+.btn--secondary {
+  color: var(--white);
+}
+
+.btn--sm {
+  padding: 0.5em 1em;
+}
+
+.btn--md {
+  padding: 0.65em 1em;
+}
+
+.btn--bg {
+  padding: 0.85em 1.3em;
+}
+
+.btn--success {
+  background-color: rgb(26, 139, 15);
+}
+
+.btn--danger {
+  background-color: rgb(219, 14, 31);
+}
+btn-hollow,
+.btn--hollow-invert {
+  background: transparent;
+}
+
+.btn--hollow {
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+}
+
+.btn--hollow-invert {
+  border: 1px solidvar(--white);
+  color: var(--white);
+}
+
+.btn--block {
+  display: block;
+}
+
+.btn.btn--full-width {
+  @extend .btn--block;
+  width: 100%;
+}
+.btn--shadow {
+  // @include boxShadow(0px 0px 25px rgba(27, 6, 75, 0.5));
+  @include BoxShadow(0px, 8px, 20px, rgba(29, 28, 31, 0.3));
+}
