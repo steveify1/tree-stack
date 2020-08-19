@@ -1,7 +1,10 @@
-import React from 'react';
-import './Aside.scss';
+import React, { Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { closeMenu } from '../../store/menu';
 import { Navbar } from '../';
-import Button from '../../components/Button/Button';
+import CloseIcon from '../../components/CloseIcon/CloseIcon';
+import LightBox from '../../components/LightBox/LightBox';
+import './Aside.scss';
 
 /**
  * Aside Component - a direct child of Main component: (layout Component)
@@ -14,32 +17,44 @@ import Button from '../../components/Button/Button';
  * )
  */
 function Aside() {
+  const state = useSelector((state) => state.menu);
+  const dispatch = useDispatch();
+
   return (
-    <aside className="Aside">
-      <header className="Aside__header">
-        <Navbar
-          data-test="navbar"
-          addNavLink
-          list={[
-            { header: 'services', href: '/services' },
-            { header: 'portfolio', href: '/portfolio' },
-            { header: 'products', href: '/products' },
-            { header: 'about', href: '/about' },
-            { header: 'contact', href: '/contact' },
-            { header: 'sign in', href: '/signin' },
-          ]}
-        />
-      </header>
+    <Fragment>
+      {state.open && (
+        <LightBox onClick={() => dispatch(closeMenu())} color="whit" />
+      )}
 
-      <footer className="Aside__footer">
-        <Navbar
-          data-test="navbar"
-          list={[{ header: 'support', href: '/support' }]}
-        />
+      <aside className={`Aside ${state.open ? 'open' : ''}`}>
+        <CloseIcon onClick={() => dispatch(closeMenu())} />
 
-        <div className="Aside__version">version 1.0.0</div>
-      </footer>
-    </aside>
+        <header className="Aside__header">
+          <Navbar
+            data-test="navbar"
+            addNavLink
+            list={[
+              { header: 'home', href: '/' },
+              { header: 'services', href: '/services' },
+              { header: 'portfolio', href: '/portfolio' },
+              { header: 'open source', href: '/open-source' },
+              { header: 'about', href: '/about' },
+              { header: 'contact', href: '/contact' },
+              { header: 'sign in', href: '/signin' },
+            ]}
+          />
+        </header>
+
+        <footer className="Aside__footer">
+          <Navbar
+            data-test="navbar"
+            list={[{ header: 'support', href: '/support' }]}
+          />
+
+          <div className="Aside__version">version 1.0.0</div>
+        </footer>
+      </aside>
+    </Fragment>
   );
 }
 

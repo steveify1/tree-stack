@@ -16,7 +16,7 @@ function Main() {
   return (
     <main className="Main">
       <MainContent data-test="content" />
-      {/* <Aside data-test="aside" /> */}
+      <Aside data-test="aside" />
     </main>
   );
 }

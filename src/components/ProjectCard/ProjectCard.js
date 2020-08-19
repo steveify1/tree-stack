@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaBookOpen } from 'react-icons/fa';
 import ResponsiveImage from '../../components/ResponsiveImage/ResponsiveImage';
-import Project1 from '../../assets/img/header-design-landing-page.png';
 import './ProjectCard.scss';
 
 function ProjectCard({ project = {} }) {
@@ -23,7 +21,7 @@ function ProjectCard({ project = {} }) {
 
           <Link
             to={project.url}
-            className="btn btn--sm btn--full-widt btn--primary btn--shado"
+            className="btn btn--sm btn--full-widt btn--primary btn--shadow"
           >
             Visit site
           </Link>
