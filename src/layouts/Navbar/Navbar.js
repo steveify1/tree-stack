@@ -31,17 +31,18 @@ function Navbar(props) {
     <nav {...rest} className="Navbar">
       <ul data-test="list" className="Navbar__list">
         {list.map((item) => (
-          <li data-test="item" key={uuid()} className="Navbar__item">
+          <li data-test="item" key={uuid()} className="Navbar__item ">
             {addNavLink ? (
               <NavLink
                 exact
                 to={item.href}
                 data-test="link"
-                className="Navbar__link"
+                className="Navbar__link flex ai-center"
                 activeClassName="Navbar__link--active"
                 onClick={handleMenuItemCLick}
               >
-                {item.header}
+                <span>{item.icon}</span>
+                <span>{item.header}</span>
               </NavLink>
             ) : (
               <Link
