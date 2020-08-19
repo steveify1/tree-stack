@@ -31,7 +31,7 @@ function Header() {
             id="subscription-cta"
             aria-label="subsription button"
             title="subscribe"
-            className="btn btn--sm btn--secondary"
+            className="btn btn--sm btn--secondary flex ai-center"
           >
             <FiMail />
             <span>Subscribe</span>

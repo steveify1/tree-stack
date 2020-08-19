@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainContent.scss';
 import { Switch, Route } from 'react-router-dom';
-import { Home, Services, NotFound } from '../../pages';
+import { Home, Services, Portfolio, NotFound } from '../../pages';
 
 /**
  * MainContent Component - a direct child of "Main" component, where the main content:(composed routed pages component/s) of the application is displayed: (layout Component)
@@ -26,6 +26,11 @@ function MainContent() {
           path="/services"
           exact
           render={(props) => <Services {...props} />}
+        />
+        <Route
+          path="/portfolio"
+          exact
+          render={(props) => <Portfolio {...props} />}
         />
         <Route path="*" render={(props) => <NotFound {...props} />} />
       </Switch>
