@@ -55,18 +55,18 @@ function Aside() {
               {
                 header: 'services',
                 href: '/services',
-                icon: <FiSettings className="icon" />,
+                icon: <FiCode className="icon" />,
               },
               {
                 header: 'portfolio',
                 href: '/portfolio',
                 icon: <FiBox className="icon" />,
               },
-              {
-                header: 'open source',
-                href: '/open-source',
-                icon: <FiCode className="icon" />,
-              },
+              // {
+              //   header: 'open source',
+              //   href: '/open-source',
+              //   icon: <FiCode className="icon" />,
+              // },
               {
                 header: 'about',
                 href: '/about',
@@ -77,20 +77,20 @@ function Aside() {
                 href: '/contact',
                 icon: <FiPhone className="icon" />,
               },
-              {
-                header: 'sign in',
-                href: '/signin',
-                icon: <FiUser className="icon" />,
-              },
+              // {
+              //   header: 'sign in',
+              //   href: '/signin',
+              //   icon: <FiUser className="icon" />,
+              // },
             ]}
           />
         </header>
 
         <footer className="Aside__footer">
-          <Navbar
+          {/* <Navbar
             data-test="navbar"
             list={[{ header: 'support', href: '/support' }]}
-          />
+          /> */}
 
           <div className="Aside__version">version 1.0.0</div>
         </footer>
