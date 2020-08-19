@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiHome } from 'react-icons/fi';
+import { FiHome, FiMenu, FiMail } from 'react-icons/fi';
 import { Navbar, Container } from '../';
 import Brand from '../../components/Brand/Brand';
 import Button from '../../components/Button/Button';
@@ -27,7 +27,16 @@ function Header() {
         <Brand data-test="brand" />
 
         <div className="Header__icons">
-          <Button variant="secondary">Subscribe</Button>
+          <button
+            id="subscription-cta"
+            aria-label="subsription button"
+            title="subscribe"
+            className="btn btn--sm btn--secondary"
+          >
+            <FiMail />
+            <span>Subscribe</span>
+          </button>
+          <FiMenu arial-label="menu icon" className="icon hamburger" />
         </div>
       </Container>
     </header>

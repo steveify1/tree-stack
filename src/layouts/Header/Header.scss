@@ -1,6 +1,6 @@
 .Header {
   --text-color: #fff;
-  padding: 1em 2em;
+  padding: 2em 0;
 
   background: linear-gradient(
     90deg,
@@ -11,10 +11,19 @@
   width: 100%;
   margin: 0 auto;
 
+  button#subscription-cta {
+    span {
+      margin-left: 0.3em;
+
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
   .icon {
     color: var(--assent-color);
     font-size: 1.5rem;
-    // opacity: 0.8;
   }
 
   .Container {

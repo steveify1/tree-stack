@@ -1,7 +1,7 @@
 .card {
   &.rounded,
   .rounded {
-    @include BorderRadius(15px);
+    @include BorderRadius(35px);
     overflow: hidden;
   }
   .card__image {

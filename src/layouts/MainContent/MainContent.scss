@@ -1,3 +1,6 @@
 .MainContent {
-	padding: 0.75rem;
+  // padding: 0.75rem;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
 }

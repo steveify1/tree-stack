@@ -15,10 +15,8 @@ import { Aside, MainContent, Container } from '../index';
 function Main() {
   return (
     <main className="Main">
-      <Container>
-        <MainContent data-test="content" />
-        <Aside data-test="aside" />
-      </Container>
+      <MainContent data-test="content" />
+      {/* <Aside data-test="aside" /> */}
     </main>
   );
 }

@@ -1,0 +1,25 @@
+@import '../../sass/modules.scss';
+
+.ServiceCard {
+  color: var(--gray);
+  @include BorderRadius(55px);
+  background-color: var(--white);
+  min-width: 300px;
+  max-width: 350px;
+  @include BoxShadow(0, 10px, 30px, rgba(0, 0, 0, 0.2));
+  padding: 2em 1em;
+
+  .card__title {
+    text-transform: capitalize;
+  }
+
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 0.5em;
+    color: var(--secondary-color);
+  }
+
+  .btn {
+    margin: 0 1em;
+  }
+}

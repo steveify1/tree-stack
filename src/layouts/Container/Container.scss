@@ -1,5 +1,6 @@
 .Container {
   max-width: var(--container-max-width);
+  padding: 0 var(--global-h-space);
   margin: 0 auto;
   overflow: hidden;
   display: flex;
