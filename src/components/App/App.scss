@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: var(--primary-dark-color);
-  color: var(--white);
+  // background: var(--primary-dark-color);
+  // color: var(--white);
+  background: url('../../assets/svg/curved-bg-1-01.svg');
+  background-size: cover;
 
   .Main {
     flex: 1;
