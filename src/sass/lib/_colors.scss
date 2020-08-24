@@ -15,7 +15,7 @@
   );
   --primaryGradient: var(--primary-gradient);
 
-  --secondaryColor: rgb(51, 204, 153);
+  --secondaryColor: var(--secondary-color);
   --white: #fff;
   --pink: rgb(235, 15, 63);
   --textColor: #222;

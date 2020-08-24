@@ -1,0 +1,107 @@
+@import '../../sass/modules.scss';
+
+.About {
+  .banner {
+    // background-color: var(--white);
+    background-color: var(--primary-color);
+    // background-color: var(--secondary-color);
+    // color: var(--primary-dark-color);
+    color: var(--white);
+    @include BoxShadow(inset -15px, -5px, 15px, rgba(23, 8, 107, 0.1));
+    .headline {
+      margin: 0;
+    }
+  }
+
+  .tab__controls {
+    border-bottom: 1px solid rgba(7, 7, 7, 0.155);
+    width: 100%;
+    margin: 1em 0;
+    padding-bottom: 1em;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .tab__control {
+    &:not(:last-child) {
+      margin-right: 1.5em;
+    }
+
+    a {
+      color: var(--gray);
+
+      &.active {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .tab {
+    margin-bottom: 3em;
+
+    .headline--3 {
+      // font-weight: 100;
+    }
+
+    @media screen and (max-width: 767px) {
+      &:first-child {
+        margin-top: 2em;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+      margin-bottom: 0;
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .tab > .company {
+    @include Grid();
+    gap: 2em;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: 8fr 4fr;
+    }
+  }
+
+  .tab.team {
+    @media screen and (max-width: 767px) {
+      text-align: center;
+    }
+
+    .teammate {
+      min-width: 300px;
+      max-width: 350px;
+      margin: 1em auto;
+      @include BoxShadow(0, 15px, 15px, rgba(15, 51, 151, 0.1));
+    }
+  }
+
+  .tab.skills {
+    .skill__list {
+      margin: 3em 0;
+
+      .skill {
+        background-color: var(--secondary-color);
+        padding: 1em;
+        margin: 0.5em;
+        @include BorderRadius(5px);
+      }
+    }
+  }
+
+  .illustration,
+  .teammate {
+    height: 300px;
+    background: var(--primary-gradient);
+    @include BorderRadius(15px);
+    padding: 2em 1em;
+    color: var(--white);
+  }
+}

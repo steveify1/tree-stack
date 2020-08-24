@@ -1,18 +1,17 @@
 .Main {
-	overflow: hidden;
+  overflow: hidden;
 
-	.Container {
-		height: 100%;
-	}
+  .Container {
+    height: 100%;
+  }
 
-	.Aside {
-		flex: 1;
-		max-width: var(--aside-width);
-		overflow: auto;
-	}
+  .Aside {
+    flex: 1;
+    overflow: auto;
+  }
 
-	.MainContent {
-		flex: 1;
-		overflow-y: auto;
-	}
+  .MainContent {
+    flex: 1;
+    overflow-y: auto;
+  }
 }

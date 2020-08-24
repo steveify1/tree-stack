@@ -1,7 +1,27 @@
-import React from 'react';
-import './Aside.scss';
+import React, { Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  FaHome,
+  FaBookReader,
+  FaCog,
+  FaPhoneSquare,
+  FaUser,
+  FaCode,
+} from 'react-icons/fa';
+import {
+  FiHome,
+  FiBook,
+  FiSettings,
+  FiBox,
+  FiPhone,
+  FiUser,
+  FiCode,
+} from 'react-icons/fi';
+import { closeMenu } from '../../store/menu';
 import { Navbar } from '../';
-import Button from '../../components/Button/Button';
+import CloseIcon from '../../components/CloseIcon/CloseIcon';
+import LightBox from '../../components/LightBox/LightBox';
+import './Aside.scss';
 
 /**
  * Aside Component - a direct child of Main component: (layout Component)
@@ -14,32 +34,68 @@ import Button from '../../components/Button/Button';
  * )
  */
 function Aside() {
+  const state = useSelector((state) => state.menu);
+  const dispatch = useDispatch();
+
   return (
-    <aside className="Aside">
-      <header className="Aside__header">
-        <Navbar
-          data-test="navbar"
-          addNavLink
-          list={[
-            { header: 'services', href: '/services' },
-            { header: 'portfolio', href: '/portfolio' },
-            { header: 'products', href: '/products' },
-            { header: 'about', href: '/about' },
-            { header: 'contact', href: '/contact' },
-            { header: 'sign in', href: '/signin' },
-          ]}
-        />
-      </header>
+    <Fragment>
+      {state.open && (
+        <LightBox onClick={() => dispatch(closeMenu())} color="whit" />
+      )}
 
-      <footer className="Aside__footer">
-        <Navbar
-          data-test="navbar"
-          list={[{ header: 'support', href: '/support' }]}
-        />
+      <aside className={`Aside ${state.open ? 'open' : ''}`}>
+        <CloseIcon onClick={() => dispatch(closeMenu())} />
 
-        <div className="Aside__version">version 1.0.0</div>
-      </footer>
-    </aside>
+        <header className="Aside__header">
+          <Navbar
+            data-test="navbar"
+            addNavLink
+            list={[
+              { header: 'home', href: '/', icon: <FiHome className="icon" /> },
+              {
+                header: 'services',
+                href: '/services',
+                icon: <FiCode className="icon" />,
+              },
+              {
+                header: 'portfolio',
+                href: '/portfolio',
+                icon: <FiBox className="icon" />,
+              },
+              // {
+              //   header: 'open source',
+              //   href: '/open-source',
+              //   icon: <FiCode className="icon" />,
+              // },
+              {
+                header: 'about',
+                href: '/about',
+                icon: <FiBook className="icon" />,
+              },
+              {
+                header: 'contact',
+                href: '/contact',
+                icon: <FiPhone className="icon" />,
+              },
+              // {
+              //   header: 'sign in',
+              //   href: '/signin',
+              //   icon: <FiUser className="icon" />,
+              // },
+            ]}
+          />
+        </header>
+
+        <footer className="Aside__footer">
+          {/* <Navbar
+            data-test="navbar"
+            list={[{ header: 'support', href: '/support' }]}
+          /> */}
+
+          <div className="Aside__version">version 1.0.0</div>
+        </footer>
+      </aside>
+    </Fragment>
   );
 }
 

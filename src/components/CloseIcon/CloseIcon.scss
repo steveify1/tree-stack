@@ -1,0 +1,31 @@
+@import '../../sass/modules.scss';
+
+.close-icon {
+  border: 1px solid var(--gray);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 3.5%;
+  right: 5%;
+  cursor: pointer;
+  opacity: 0.6;
+  @include BorderRadius(50%);
+
+  .icon {
+    color: var(--gray);
+    font-size: 1.5rem;
+  }
+
+  &,
+  .icon {
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    opacity: 0.65;
+
+    .icon {
+      font-size: 1.3rem;
+    }
+  }
+}

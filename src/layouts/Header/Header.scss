@@ -1,20 +1,29 @@
 .Header {
-  --text-color: #fff;
-  padding: 1em 2em;
+  // --text-color: #fff;
+  padding: 2em 0;
 
-  background: linear-gradient(
-    90deg,
-    var(--primary-dark-color) 50%,
-    var(--primary-color)
-  );
+  // background: linear-gradient(
+  //   90deg,
+  //   var(--primary-dark-color) 50%,
+  //   var(--primary-color)
+  // );
   max-width: var(--container-max-width);
   width: 100%;
   margin: 0 auto;
 
+  button#subscription-cta {
+    span {
+      margin-left: 0.3em;
+
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
   .icon {
     color: var(--assent-color);
     font-size: 1.5rem;
-    // opacity: 0.8;
   }
 
   .Container {
@@ -27,6 +36,11 @@
     text-align: center;
     max-width: var(--aside-width);
     color: var(--text-color);
+    transform: translateX(43%);
+
+    @media screen and (max-width: 767px) {
+      transform: translateX(15%);
+    }
   }
 
   .Navbar {

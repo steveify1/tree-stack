@@ -1,3 +1,7 @@
+.carousel li.slide {
+  background-color: transparent;
+}
+
 .scroll-slider {
   justify-content: start !important;
 }
@@ -7,20 +11,26 @@
 
 .h-scroll-slider__parent {
   position: relative;
-}
+  max-width: 100%;
 
-.h-scroll-slider {
-  overflow-x: auto;
+  .h-scroll-slider {
+    overflow-x: auto;
+    width: 100%;
 
-  &__child {
-    min-width: 180px !important;
-    max-width: 180px !important;
-    width: fit-content;
-    overflow: hidden;
-    display: block;
-    &:not(:last-child) {
-      margin-right: 1em;
+    &__child {
+      min-width: 380px !important;
+      max-width: 300px !important;
+      width: fit-content;
+      // overflow: hidden;
+      display: block;
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
     }
+  }
+
+  .slide-control {
+    color: var(--primary-color);
   }
 }
 
@@ -33,16 +43,18 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  height: 30px;
+  width: 30px;
+  padding: 0.3em;
+  @include BorderRadius();
+
+  @media screen and (min-width: 768px) {
+    height: 40px;
+    width: 40px;
+  }
 
   &.rounded {
     @include BorderRadius(50%);
-    height: 30px;
-    width: 30px;
-
-    @media screen and (min-width: 768px) {
-      height: 40px;
-      width: 40px;
-    }
   }
 
   &:hover {

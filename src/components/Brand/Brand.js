@@ -14,7 +14,7 @@ function Brand() {
   return (
     <span data-test="brand" className="Brand">
       <span data-test="content" className="Brand__content">
-        Norse Man Tech
+        NorseTech
       </span>
     </span>
   );

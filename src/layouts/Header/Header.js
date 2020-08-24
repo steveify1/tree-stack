@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiHome } from 'react-icons/fi';
-import { Navbar, Container } from '../';
+import { useDispatch } from 'react-redux';
+import { openMenu } from '../../store/menu';
+import { FiHome, FiMenu, FiMail } from 'react-icons/fi';
+import { Container } from '../';
 import Brand from '../../components/Brand/Brand';
-import Button from '../../components/Button/Button';
 import './Header.scss';
 
 /**
@@ -17,6 +18,8 @@ import './Header.scss';
  * )
  */
 function Header() {
+  const dispatch = useDispatch();
+
   return (
     <header className="Header">
       <Container className="flex jc-space-between">
@@ -27,7 +30,20 @@ function Header() {
         <Brand data-test="brand" />
 
         <div className="Header__icons">
-          <Button variant="secondary">Subscribe</Button>
+          <button
+            id="subscription-cta"
+            aria-label="subsription button"
+            title="subscribe"
+            className="btn btn--sm btn--secondary flex ai-center"
+          >
+            <FiMail />
+            <span>Subscribe</span>
+          </button>
+          <FiMenu
+            arial-label="menu icon"
+            className="icon hamburger"
+            onClick={() => dispatch(openMenu())}
+          />
         </div>
       </Container>
     </header>
