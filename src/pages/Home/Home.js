@@ -35,49 +35,47 @@ function Home() {
   };
   return (
     <div className="Home">
-      <Slider {...settings}>
-        <Container>
-          <div className="banner grid">
-            <article>
-              <h1 className="headline headline--2">
-                Build and Deploy Scalable, High-performant Softwares.
-              </h1>
-              <p className="kilo">
-                We build tools, APIs, and smart, user-friendly interfaces that
-                are scalable, maintainable and reliable. <br /> <br />{' '}
-                <FaCheckCircle className="icon" /> Transition from ideation to
-                production. <br /> <FaCheckCircle className="icon" /> Automate
-                the recurring steps. <br /> <FaCheckCircle className="icon" />{' '}
-                Create market advantage.
-              </p>
+      <Container>
+        <div className="banner grid">
+          <article>
+            <h1 className="headline headline--2">
+              Build and Deploy Scalable, High-performant Softwares.
+            </h1>
+            <p className="kilo">
+              We build tools, APIs, and smart, user-friendly interfaces that are
+              scalable, maintainable and reliable. <br /> <br />{' '}
+              <FaCheckCircle className="icon" /> Transition from ideation to
+              production. <br /> <FaCheckCircle className="icon" /> Automate the
+              recurring steps. <br /> <FaCheckCircle className="icon" /> Create
+              market advantage.
+            </p>
 
-              <div className="btn-group">
-                <Link
-                  to="/contact"
-                  className="btn btn--bg btn--secondary btn--shadow"
-                >
-                  Start a project
-                </Link>
+            <div className="btn-group">
+              <Link
+                to="/contact"
+                className="btn btn--bg btn--secondary btn--shadow"
+              >
+                Start a project
+              </Link>
 
-                <Link
-                  to="/portfolio"
-                  className="btn btn--bg btn--primary btn--outlin btn--shadow"
-                >
-                  See Portfolio &gt;
-                </Link>
-              </div>
-            </article>
+              <Link
+                to="/portfolio"
+                className="btn btn--bg btn--primary btn--outlin btn--shadow"
+              >
+                See Portfolio &gt;
+              </Link>
+            </div>
+          </article>
 
-            <div className="illustration"></div>
-          </div>
-        </Container>
-        {/* <Container>
+          <div className="illustration"></div>
+        </div>
+      </Container>
+      {/* <Container>
           <div className="banner">
             <h1 className="headline headline--2">Experience the art of JS.</h1>
             <p>Banner 2</p>
           </div>
         </Container> */}
-      </Slider>
 
       <div className="socials flex jc-space-between">
         <Link to="">

@@ -7,16 +7,16 @@
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
-    width: 0.5rem;
-    height: 0.5rem;
+    // width: 0.5rem;
+    // height: 0.5rem;
 
-    &-track {
-      background: linear-gradient(var(--line-color) 30%, transparent);
-    }
-    &-thumb {
-      background: var(--primary-dark-color);
-      border-radius: 10px;
-    }
+    // &-track {
+    //   background: linear-gradient(var(--line-color) 30%, transparent);
+    // }
+    // &-thumb {
+    //   background: var(--primary-dark-color);
+    //   border-radius: 10px;
+    // }
   }
 }
 

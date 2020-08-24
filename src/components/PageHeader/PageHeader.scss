@@ -1,8 +1,8 @@
 @import '../../sass/modules.scss';
 
 .page__header {
-  padding: 0.5em 1em;
-  @include BoxShadow(0, 10px, 30px, rgba(15, 51, 151, 0.37));
+  padding: 0.5em 0em;
+  // @include BoxShadow(0, 10px, 30px, rgba(15, 51, 151, 0.37));
   .headline,
   p {
     margin-bottom: 0.1em !important;
@@ -12,8 +12,8 @@
     color: var(--white);
   }
 
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  // position: sticky;
+  // top: 0;
+  // z-index: 1;
   background-color: var(--primary-color);
 }
