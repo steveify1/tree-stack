@@ -1,7 +1,14 @@
 import React from 'react';
 import './MainContent.scss';
 import { Switch, Route } from 'react-router-dom';
-import { Home, Services, Portfolio, About, NotFound } from '../../pages';
+import {
+  Home,
+  Services,
+  Portfolio,
+  About,
+  Contact,
+  NotFound,
+} from '../../pages';
 
 /**
  * MainContent Component - a direct child of "Main" component, where the main content:(composed routed pages component/s) of the application is displayed: (layout Component)
@@ -33,6 +40,7 @@ function MainContent() {
           render={(props) => <Portfolio {...props} />}
         />
         <Route path="/about" render={(props) => <About {...props} />} />
+        <Route path="/contact" render={(props) => <Contact {...props} />} />
         <Route path="*" render={(props) => <NotFound {...props} />} />
       </Switch>
     </main>

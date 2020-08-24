@@ -1,0 +1,81 @@
+@import '../../sass/modules.scss';
+
+.Contact {
+  .banner {
+    min-height: 100px;
+    p {
+      max-width: 300px;
+      margin: auto;
+    }
+  }
+
+  .section--outside {
+    @media screen and (min-width: 768px) {
+      margin: 3em 5em 2em;
+    }
+  }
+
+  .form-wrapper {
+    padding: 0em 1em;
+    background-color: var(--white);
+    @include BorderRadius(15px);
+
+    @media screen and (min-width: 767px) {
+      order: 3;
+    }
+
+    .form-group {
+      margin-bottom: 1em;
+    }
+
+    label,
+    .form-group,
+    .form-control {
+      color: var(--gray);
+      width: 100%;
+    }
+
+    textarea.form-control {
+      max-width: 700px;
+      min-width: 100%;
+      min-height: 70px;
+      max-height: 150px;
+    }
+  }
+
+  .icon {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: -10px;
+  }
+
+  .booking {
+    .icon {
+      color: var(--secondary-color);
+    }
+  }
+
+  .contact__info {
+    padding: 0em 1em;
+  }
+
+  .contact__channels {
+    .contact__channel {
+      &:not(:last-child) {
+        margin-bottom: 0.5em;
+      }
+
+      .icon {
+        margin-right: 1em !important;
+        color: var(--secondary-color);
+      }
+
+      .socials {
+        max-width: 200px;
+        .icon {
+          color: var(--gray);
+        }
+      }
+    }
+  }
+}

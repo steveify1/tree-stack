@@ -36,6 +36,11 @@
     text-align: center;
     max-width: var(--aside-width);
     color: var(--text-color);
+    transform: translateX(43%);
+
+    @media screen and (max-width: 767px) {
+      transform: translateX(15%);
+    }
   }
 
   .Navbar {
