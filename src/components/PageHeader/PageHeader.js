@@ -1,11 +1,14 @@
 import React from 'react';
+import Container from '../../layouts/Container/Container';
 import './PageHeader.scss';
 
 function PageHeader({ title, description }) {
   return (
     <header className="page__header">
-      <h1 className="headline headline--3">{title}</h1>
-      {description && <p className="kilo color--secondary">{description}</p>}
+      <Container>
+        <h1 className="headline mega">{title}</h1>
+        {description && <p className="millo color--secondary">{description}</p>}
+      </Container>
     </header>
   );
 }

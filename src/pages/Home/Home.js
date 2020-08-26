@@ -8,10 +8,9 @@ import {
   FaLinkedin,
 } from 'react-icons/fa';
 import Container from '../../layouts/Container/Container';
+import PageLoader from '../../components/PageLoader/PageLoader';
+import Loader from '../../components/Loader/Loader';
 import './Home.scss';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 /**
  * Home Component - a direct child of "MainContent" component: (page Component)
@@ -25,17 +24,13 @@ import 'slick-carousel/slick/slick-theme.css';
  */
 
 function Home() {
-  const settings = {
-    arrows: false,
-    dots: false,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    infinite: true,
-    pauseOnHover: false,
-  };
   return (
-    <div className="Home">
-      <Slider {...settings}>
+    <PageLoader
+      transition="swipeLeft"
+      delay={0.5}
+      InitialScreen={() => <Loader showBrand fullscreen />}
+    >
+      <div className="Home">
         <Container>
           <div className="banner grid">
             <article>
@@ -77,23 +72,23 @@ function Home() {
             <p>Banner 2</p>
           </div>
         </Container> */}
-      </Slider>
 
-      <div className="socials flex jc-space-between">
-        <Link to="">
-          <FaTwitter className="icon" />
-        </Link>
-        <Link to="">
-          <FaGithub className="icon" />
-        </Link>
-        <Link to="">
-          <FaLinkedin className="icon" />
-        </Link>
-        <Link to="">
-          <FaMedium className="icon" />
-        </Link>
+        <div className="socials flex jc-space-between">
+          <Link to="">
+            <FaTwitter className="icon" />
+          </Link>
+          <Link to="">
+            <FaGithub className="icon" />
+          </Link>
+          <Link to="">
+            <FaLinkedin className="icon" />
+          </Link>
+          <Link to="">
+            <FaMedium className="icon" />
+          </Link>
+        </div>
       </div>
-    </div>
+    </PageLoader>
   );
 }
 

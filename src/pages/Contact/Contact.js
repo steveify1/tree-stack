@@ -111,7 +111,7 @@ function Contact() {
 
           <div className="booking">
             <h3 className="headline mega flex ai-center">
-              We can seat and have coffe too.
+              We can seat and have coffee too.
             </h3>
             <span>
               <MdLocationOn className="icon" /> <span>Lagos, Nigeria.</span>{' '}

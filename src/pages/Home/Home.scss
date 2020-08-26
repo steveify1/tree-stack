@@ -5,15 +5,11 @@
   // background: url('../../assets/svg/patterned-bg-1-01.svg');
   background-size: cover;
 
-  .slick-slider {
-    // height: 100%;
-  }
-
   .Container {
     .banner {
-      height: 75vh !important;
+      // height: 75vh !important;
       margin-top: 20px;
-      // padding: 2em;
+      padding: 2em 0;
 
       @media screen and (min-width: 992px) {
         grid-template-columns: 7fr 5fr;
