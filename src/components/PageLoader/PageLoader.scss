@@ -1,0 +1,27 @@
+.PageLoader__parent {
+  overflow-x: hidden;
+}
+
+.PageLoader {
+  transition: all 0.5s ease;
+  opacity: 0;
+
+  &.scaleUp {
+    transform: scale(0.8);
+  }
+
+  &.swipeLeft {
+    transform: translateX(30%);
+  }
+
+  &--load {
+    opacity: 1;
+    &.scaleUp {
+      transform: scale(1);
+    }
+
+    &.swipeLeft {
+      transform: translateX(0%);
+    }
+  }
+}
